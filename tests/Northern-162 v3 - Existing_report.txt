@@ -1,0 +1,662 @@
+Lanes, Volumes, Timings
+1: 162nd Street & Northern Boulevard	08/24/2023
+
+
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR	SEL	SET	SER	NWL	NWT	NWR
+Lane Configurations               								0	<1>	0	0	<1>	0	0	2>	0	1	2>	0
+Traffic Volume (vph)              								78	159	11	43	177	0	0	625	127	19	1334	26
+Future Volume (vph)               								78	159	11	43	177	0	0	625	127	19	1334	26
+Ideal Flow (vphpl)                								1900	1900	1900	1900	1900	1900	1900	1900	1900	1900	1900	1900
+Lane Width (ft)                   								8	12	8	1	14	8	12	10	12	10	11	12
+Storage Length (ft)               								0		0	0		0	0		0	60		0
+Storage Lanes                     								0		0	0		0	0		0	1		0
+Taper Length (ft)                 								0			0			0			35		
+Lane Util. Factor                 								1.00	1.00	1.00	1.00	1.00	1.00	1.00	0.95	0.95	1.00	0.95	0.95
+Ped Bike Factor                   									0.99			1.00			0.99		0.99	1.00	
+Frt                               									0.993						0.971			0.997	
+Flt Protected                     									0.985			0.990					0.950		
+Satd. Flow (prot)                 								0	1469	0	0	1930	0	0	2754	0	1392	3333	0
+Flt Permitted                     									0.717			0.854					0.279		
+Satd. Flow (perm)                 								0	1063	0	0	1662	0	0	2754	0	405	3333	0
+Right Turn on Red                 										No			No			No			No
+Satd. Flow (RTOR)                 																			
+Link Speed (mph)                  									25			25			25			25	
+Link Distance (ft)                									235			152			214			102	
+Travel Time (s)                   									6.4			4.1			5.8			2.8	
+Confl. Peds. (#/hr)               								36		18	18		36	18		35	35		18
+Peak Hour Factor                  								0.86	0.86	0.81	0.82	0.83	0.92	0.92	0.96	0.80	0.80	0.93	0.80
+Heavy Vehicles (%)                								11%	3%	15%	16%	1%	2%	2%	9%	12%	21%	4%	17%
+Parking  (#/hr)                   									12						7				
+Adj. Flow (vph)                   								91	185	14	52	213	0	0	651	159	24	1434	33
+Shared Lane Traffic (%)           																			
+Lane Group Flow (vph)             								0	290	0	0	265	0	0	810	0	24	1467	0
+Enter Blocked Intersection        								No	No	No	No	No	No	No	No	No	No	No	No
+Lane Alignment                    								Left	Left	Right	Left	Left	Right	Left	Left	Right	Left	Left	Right
+Median Width(ft)                  									0			0			11			15	
+Link Offset(ft)                   									0			0			0			0	
+Crosswalk Width(ft)               									16			16			16			16	
+Two way Left Turn Lane            																			
+Headway Factor                    								1.20	1.25	1.20	1.75	0.92	1.20	1.00	1.19	1.00	1.09	1.04	1.00
+Turning Speed (mph)               								15		9	15		9	15		9	15		9
+Turn Type                         								Perm	NA		Perm	NA			NA		pm+pt	NA	
+Protected Phases                  									2			2			4		3	8	
+Permitted Phases                  								2			2						8		
+Minimum Split (s)                 								40.0	40.0		40.0	40.0			66.0		10.0	81.0	
+Total Split (s)                   								40.0	40.0		40.0	40.0			67.0		13.0	80.0	
+Total Split (%)                   								33.3%	33.3%		33.3%	33.3%			55.8%		10.8%	66.7%	
+Maximum Green (s)                 								35.0	35.0		35.0	35.0			62.0		8.0	75.0	
+Yellow Time (s)                   								3.0	3.0		3.0	3.0			3.0		3.0	3.0	
+All-Red Time (s)                  								2.0	2.0		2.0	2.0			2.0		2.0	2.0	
+Lost Time Adjust (s)              									0.0			0.0			0.0		0.0	0.0	
+Total Lost Time (s)               									5.0			5.0			5.0		5.0	5.0	
+Lead/Lag                          															Lead		Lag		
+Lead-Lag Optimize?                															Yes		Yes		
+Walk Time (s)                     								9.0	9.0		9.0	9.0			47.0			65.0	
+Flash Dont Walk (s)               								26.0	26.0		26.0	26.0			14.0			10.0	
+Pedestrian Calls (#/hr)           								0	0		0	0			0			0	
+Act Effct Green (s)               									35.0			35.0			62.0		75.0	75.0	
+Actuated g/C Ratio                									0.29			0.29			0.52		0.62	0.62	
+v/c Ratio                         									0.94			0.55			0.57		0.08	0.70	
+Control Delay                     									79.4			23.0			13.5		4.2	13.3	
+Queue Delay                       									47.5			8.1			0.1		0.0	0.9	
+Total Delay                       									127.0			31.1			13.7		4.2	14.2	
+LOS                               									F			C			B		A	B	
+Approach Delay                    									127.0			31.1			13.7			14.0	
+Approach LOS                      									F			C			B			B	
+Stops (vph)                       									215			79			214		2	1126	
+Fuel Used(gal)                    									5			2			4		0	9	
+CO Emissions (g/hr)               									374			113			298		3	641	
+NOx Emissions (g/hr)              									73			22			58		1	125	
+VOC Emissions (g/hr)              									87			26			69		1	149	
+Dilemma Vehicles (#)              									0			0			0		0	0	
+Queue Length 50th (ft)            									219			77			100		2	504	
+Queue Length 95th (ft)            									#364			102			118		m4	606	
+Internal Link Dist (ft)           									155			72			134			22	
+Turn Bay Length (ft)              																	60		
+Base Capacity (vph)               									310			484			1422		318	2083	
+Starvation Cap Reductn            									0			176			102		0	329	
+Spillback Cap Reductn             									86			0			0		0	172	
+Storage Cap Reductn               									0			0			0		0	0	
+Reduced v/c Ratio                 									1.29			0.86			0.61		0.08	0.84	
+
+Intersection Summary
+Area Type:                        	Other
+Cycle Length: 120
+Actuated Cycle Length: 120
+Offset: 23 (19%), Referenced to phase 4:SET, Start of Green
+Natural Cycle: 125
+Control Type: Pretimed
+Maximum v/c Ratio: 0.94
+Intersection Signal Delay: 27.0   					Intersection LOS: C
+Intersection Capacity Utilization 100.0%					ICU Level of Service F
+Analysis Period (min) 15
+#    95th percentile volume exceeds capacity, queue may be longer.
+     Queue shown is maximum after two cycles.
+m    Volume for 95th percentile queue is metered by upstream signal.
+
+
+AM Existing - BR AM Peak 7:30-8:30 10:55 am 06/06/2023 	Synchro 11 Report
+	Page 0
+
+Lanes, Volumes, Timings
+2: 162nd Street & Crocheron Avenue	08/24/2023
+
+
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR	Ø1	Ø5
+Lane Configurations               		0	<1>	0	0	<1>	0	0	<1>	0	0	<1>	0		
+Traffic Volume (vph)              		6	125	0	79	216	17	0	102	83	7	141	7		
+Future Volume (vph)               		6	125	0	79	216	17	0	102	83	7	141	7		
+Ideal Flow (vphpl)                		1900	1900	1900	1900	1900	1900	1900	1900	1900	1900	1900	1900		
+Lane Width (ft)                   		11	14	11	8	12	8	1	14	8	8	12	8		
+Lane Util. Factor                 		1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00	1.00		
+Ped Bike Factor                   			1.00			1.00			0.98			1.00			
+Frt                               						0.992			0.939			0.994			
+Flt Protected                     			0.997			0.988						0.998			
+Satd. Flow (prot)                 		0	1916	0	0	1794	0	0	1770	0	0	1807	0		
+Flt Permitted                     			0.982			0.881						0.982			
+Satd. Flow (perm)                 		0	1885	0	0	1598	0	0	1770	0	0	1776	0		
+Right Turn on Red                 				No			No			No			No		
+Satd. Flow (RTOR)                 															
+Link Speed (mph)                  			25			25			25			25			
+Link Distance (ft)                			192			284			152			1058			
+Travel Time (s)                   			5.2			7.7			4.1			28.9			
+Confl. Peds. (#/hr)               		38		6	6		38	21		13	13		21		
+Peak Hour Factor                  		0.80	0.84	0.92	0.90	0.89	0.80	0.92	0.88	0.86	0.80	0.80	0.80		
+Heavy Vehicles (%)                		33%	4%	2%	3%	4%	0%	2%	4%	6%	25%	3%	2%		
+Adj. Flow (vph)                   		8	149	0	88	243	21	0	116	97	9	176	9		
+Shared Lane Traffic (%)           															
+Lane Group Flow (vph)             		0	157	0	0	352	0	0	213	0	0	194	0		
+Enter Blocked Intersection        		No	No	No	1 veh	No	No	No	No	No	No	No	No		
+Lane Alignment                    		Left	Left	Right	Left	Left	Right	Left	Left	Right	Left	Left	Right		
+Median Width(ft)                  			0			0			0			0			
+Link Offset(ft)                   			0			0			0			0			
+Crosswalk Width(ft)               			16			16			16			16			
+Two way Left Turn Lane            															
+Headway Factor                    		1.04	0.92	1.04	1.20	1.00	1.20	1.75	0.92	1.20	1.20	1.00	1.20		
+Turning Speed (mph)               		15		9	15		9	15		9	15		9		
+Turn Type                         		Perm	NA		Perm	NA			NA		Perm	NA			
+Protected Phases                  			4			8			2			2		1	5
+Permitted Phases                  		4			8						2				
+Minimum Split (s)                 		86.0	86.0		86.0	86.0			24.0		24.0	24.0		10.0	36.0
+Total Split (s)                   		85.0	85.0		85.0	85.0			28.0		28.0	28.0		7.0	35.0
+Total Split (%)                   		70.8%	70.8%		70.8%	70.8%			23.3%		23.3%	23.3%		6%	29%
+Maximum Green (s)                 		80.0	80.0		80.0	80.0			23.0		23.0	23.0		2.0	30.0
+Yellow Time (s)                   		3.0	3.0		3.0	3.0			3.0		3.0	3.0		3.0	3.0
+All-Red Time (s)                  		2.0	2.0		2.0	2.0			2.0		2.0	2.0		2.0	2.0
+Lost Time Adjust (s)              			0.0			0.0			0.0			0.0			
+Total Lost Time (s)               			5.0			5.0			5.0			5.0			
+Lead/Lag                          									Lag		Lag	Lag		Lead	
+Lead-Lag Optimize?                									Yes		Yes	Yes		Yes	
+Walk Time (s)                     		70.0	70.0		70.0	70.0									20.0
+Flash Dont Walk (s)               		9.0	9.0		9.0	9.0									10.0
+Pedestrian Calls (#/hr)           		0	0		0	0									0
+Act Effct Green (s)               			80.0			80.0			23.0			23.0			
+Actuated g/C Ratio                			0.67			0.67			0.19			0.19			
+v/c Ratio                         			0.12			0.33			0.63			0.57			
+Control Delay                     			3.5			9.6			22.9			51.5			
+Queue Delay                       			0.0			23.3			65.7			0.0			
+Total Delay                       			3.5			32.9			88.6			51.5			
+LOS                               			A			C			F			D			
+Approach Delay                    			3.5			32.9			88.6			51.5			
+Approach LOS                      			A			C			F			D			
+Stops (vph)                       			17			128			127			138			
+Fuel Used(gal)                    			0			2			2			4			
+CO Emissions (g/hr)               			26			130			112			248			
+NOx Emissions (g/hr)              			5			25			22			48			
+VOC Emissions (g/hr)              			6			30			26			58			
+Dilemma Vehicles (#)              			0			0			0			0			
+Queue Length 50th (ft)            			15			107			71			138			
+Queue Length 95th (ft)            			22			155			m99			188			
+Internal Link Dist (ft)           			112			204			72			978			
+Turn Bay Length (ft)              															
+Base Capacity (vph)               			1256			1065			339			340			
+Starvation Cap Reductn            			0			0			172			0			
+Spillback Cap Reductn             			0			709			0			0			
+Storage Cap Reductn               			0			0			0			0			
+Reduced v/c Ratio                 			0.13			0.99			1.28			0.57			
+
+Intersection Summary
+Area Type:                        	Other
+Cycle Length: 120
+Actuated Cycle Length: 120
+Offset: 23 (19%), Referenced to phase 4:EBTL and 8:WBTL, Start of Green
+Natural Cycle: 125
+Control Type: Pretimed
+Maximum v/c Ratio: 0.63
+Intersection Signal Delay: 44.8   					Intersection LOS: D
+Intersection Capacity Utilization 87.8%					ICU Level of Service E
+Analysis Period (min) 15
+m    Volume for 95th percentile queue is metered by upstream signal.
+
+
+AM Existing - BR AM Peak 7:30-8:30 10:55 am 06/06/2023 	Synchro 11 Report
+	Page 0
+
+Lanes, Volumes, Timings
+3: Crocheron Avenue & 161st Street	08/24/2023
+
+
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR	Ø3	Ø7
+Lane Configurations               		1	2			3>	0				1>		0		
+Traffic Volume (vph)              		11	848			1566	69				35		19		
+Future Volume (vph)               		11	848			1566	69				35		19		
+Ideal Flow (vphpl)                		1900	1900			1900	1900				1900		1900		
+Lane Width (ft)                   		10	10			10	8				11		8		
+Storage Length (ft)               		80					0				0		0		
+Storage Lanes                     		1					0				1		0		
+Taper Length (ft)                 		35									0				
+Lane Util. Factor                 		1.00	0.95			*0.75	*0.95				1.00		1.00		
+Ped Bike Factor                   		1.00				1.00					0.98				
+Frt                               						0.993					0.952				
+Flt Protected                     		0.950									0.969				
+Satd. Flow (prot)                 		1685	2921			3801	0				1620		0		
+Flt Permitted                     		0.055									0.969				
+Satd. Flow (perm)                 		97	2921			3801	0				1604		0		
+Right Turn on Red                 							No						No		
+Satd. Flow (RTOR)                 															
+Link Speed (mph)                  			25			25					25				
+Link Distance (ft)                			267			99					1035				
+Travel Time (s)                   			7.3			2.7					28.2				
+Confl. Peds. (#/hr)               		45					45				13		10		
+Peak Hour Factor                  		0.80	0.97			0.94	0.80				0.80		0.80		
+Heavy Vehicles (%)                		0%	9%			4%	3%				3%		5%		
+Parking  (#/hr)                   			2												
+Adj. Flow (vph)                   		14	874			1666	86				44		24		
+Shared Lane Traffic (%)           															
+Lane Group Flow (vph)             		14	874			1752	0				68		0		
+Enter Blocked Intersection        		No	No			No	No				No		No		
+Lane Alignment                    		Left	Right			Left	Right				Left		Right		
+Median Width(ft)                  			10			0					11				
+Link Offset(ft)                   			0			0					0				
+Crosswalk Width(ft)               			16			16					16				
+Two way Left Turn Lane            															
+Headway Factor                    		1.09	1.17			1.09	1.20				1.04		1.20		
+Turning Speed (mph)               		15					9				15		9		
+Turn Type                         		Perm	NA			NA					Prot				
+Protected Phases                  			1			5					4			3	7
+Permitted Phases                  		1													
+Minimum Split (s)                 		24.0	24.0			80.0					23.0			10.0	42.0
+Total Split (s)                   		78.0	78.0			78.0					35.0			7.0	42.0
+Total Split (%)                   		65.0%	65.0%			65.0%					29.2%			6%	35%
+Maximum Green (s)                 		73.0	73.0			73.0					30.0			2.0	37.0
+Yellow Time (s)                   		3.0	3.0			3.0					3.0			3.0	3.0
+All-Red Time (s)                  		2.0	2.0			2.0					2.0			2.0	2.0
+Lost Time Adjust (s)              		0.0	0.0			0.0					0.0				
+Total Lost Time (s)               		5.0	5.0			5.0					5.0				
+Lead/Lag                          											Lag			Lead	
+Lead-Lag Optimize?                											Yes			Yes	
+Walk Time (s)                     						64.0									18.0
+Flash Dont Walk (s)               						8.0									19.0
+Pedestrian Calls (#/hr)           						0									0
+Act Effct Green (s)               		73.0	73.0			73.0					30.0				
+Actuated g/C Ratio                		0.61	0.61			0.61					0.25				
+v/c Ratio                         		0.24	0.49			0.76					0.17				
+Control Delay                     		13.8	5.9			7.8					36.6				
+Queue Delay                       		0.0	0.0			0.3					0.0				
+Total Delay                       		13.8	5.9			8.1					36.6				
+LOS                               		B	A			A					D				
+Approach Delay                    			6.1			8.1					36.6				
+Approach LOS                      			A			A					D				
+Stops (vph)                       		2	121			1020					41				
+Fuel Used(gal)                    		0	3			8					1				
+CO Emissions (g/hr)               		4	239			551					72				
+NOx Emissions (g/hr)              		1	46			107					14				
+VOC Emissions (g/hr)              		1	55			128					17				
+Dilemma Vehicles (#)              		0	0			0					0				
+Queue Length 50th (ft)            		1	42			73					41				
+Queue Length 95th (ft)            		m3	50			m106					72				
+Internal Link Dist (ft)           			187			19					955				
+Turn Bay Length (ft)              		80													
+Base Capacity (vph)               		59	1776			2312					405				
+Starvation Cap Reductn            		0	1			141					0				
+Spillback Cap Reductn             		0	0			82					0				
+Storage Cap Reductn               		0	0			0					0				
+Reduced v/c Ratio                 		0.24	0.49			0.81					0.17				
+
+Intersection Summary
+Area Type:                        	Other
+Cycle Length: 120
+Actuated Cycle Length: 120
+Offset: 31 (26%), Referenced to phase 1:EBTL, Start of Green
+Natural Cycle: 125
+Control Type: Pretimed
+Maximum v/c Ratio: 0.76
+Intersection Signal Delay: 8.1    					Intersection LOS: A
+Intersection Capacity Utilization 72.5%					ICU Level of Service C
+Analysis Period (min) 15
+*    User Entered Value
+m    Volume for 95th percentile queue is metered by upstream signal.
+
+
+AM Existing - BR AM Peak 7:30-8:30 10:55 am 06/06/2023 	Synchro 11 Report
+	Page 0
+
+Lanes, Volumes, Timings
+10: Crocheron Avenue	08/24/2023
+
+
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR
+Lane Configurations               		0	<1			1>	0				1>		0
+Traffic Volume (vph)              		0	215			312	0				0		0
+Future Volume (vph)               		0	215			312	0				0		0
+Ideal Flow (vphpl)                		1900	1900			1900	1900				1900		1900
+Lane Util. Factor                 		1.00	1.00			1.00	1.00				1.00		1.00
+Frt                               													
+Flt Protected                     													
+Satd. Flow (prot)                 		0	1810			1827	0				1863		0
+Flt Permitted                     													
+Satd. Flow (perm)                 		0	1810			1827	0				1863		0
+Link Speed (mph)                  			25			25					25		
+Link Distance (ft)                			284			252					1041		
+Travel Time (s)                   			7.7			6.9					28.4		
+Peak Hour Factor                  		0.92	0.92			0.92	0.92				0.92		0.92
+Heavy Vehicles (%)                		2%	5%			4%	2%				2%		2%
+Adj. Flow (vph)                   		0	234			339	0				0		0
+Shared Lane Traffic (%)           													
+Lane Group Flow (vph)             		0	234			339	0				0		0
+Enter Blocked Intersection        		No	No			No	No				No		No
+Lane Alignment                    		Left	Left			Left	Right				Left		Right
+Median Width(ft)                  			0			0					12		
+Link Offset(ft)                   			0			0					0		
+Crosswalk Width(ft)               			16			16					16		
+Two way Left Turn Lane            													
+Headway Factor                    		1.00	1.00			1.00	1.00				1.00		1.00
+Turning Speed (mph)               		15					9				15		9
+Sign Control                      			Free			Free					Stop		
+
+Intersection Summary
+Area Type:                        	Other
+Control Type: Unsignalized
+Intersection Capacity Utilization 19.8%					ICU Level of Service A
+Analysis Period (min) 15
+
+
+AM Existing - BR AM Peak 7:30-8:30 10:55 am 06/06/2023 	Synchro 11 Report
+	Page 0
+
+Lanes, Volumes, Timings
+13: 162nd Street & Station Rd	08/24/2023
+
+
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR
+Lane Configurations               		1>		0				0	<1			1>	0
+Traffic Volume (vph)              		0		0				0	248			323	0
+Future Volume (vph)               		0		0				0	248			323	0
+Ideal Flow (vphpl)                		1900		1900				1900	1900			1900	1900
+Lane Util. Factor                 		1.00		1.00				1.00	1.00			1.00	1.00
+Frt                               													
+Flt Protected                     													
+Satd. Flow (prot)                 		1863		0				0	1759			1863	0
+Flt Permitted                     													
+Satd. Flow (perm)                 		1863		0				0	1759			1863	0
+Link Speed (mph)                  		25							25			25	
+Link Distance (ft)                		254							461			235	
+Travel Time (s)                   		6.9							12.6			6.4	
+Peak Hour Factor                  		0.92		0.92				0.92	0.92			0.92	0.92
+Heavy Vehicles (%)                		2%		2%				2%	8%			2%	2%
+Adj. Flow (vph)                   		0		0				0	270			351	0
+Shared Lane Traffic (%)           													
+Lane Group Flow (vph)             		0		0				0	270			351	0
+Enter Blocked Intersection        		No		No				No	No			No	No
+Lane Alignment                    		Left		Right				Left	Left			Left	Right
+Median Width(ft)                  		12							0			0	
+Link Offset(ft)                   		0							0			0	
+Crosswalk Width(ft)               		16							16			16	
+Two way Left Turn Lane            													
+Headway Factor                    		1.00		1.00				1.00	1.00			1.00	1.00
+Turning Speed (mph)               		15		9				15					9
+Sign Control                      		Stop							Free			Free	
+
+Intersection Summary
+Area Type:                        	Other
+Control Type: Unsignalized
+Intersection Capacity Utilization 20.3%					ICU Level of Service A
+Analysis Period (min) 15
+
+
+AM Existing - BR AM Peak 7:30-8:30 10:55 am 06/06/2023 	Synchro 11 Report
+	Page 0
+
+Lanes, Volumes, Timings
+100: Northern Boulevard & Crocheron Avenue	08/24/2023
+
+
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR	SWL	SWT	SWR
+Lane Configurations               		1	2			2	0							0		1
+Traffic Volume (vph)              		131	752			1412	0							0		223
+Future Volume (vph)               		131	752			1412	0							0		223
+Ideal Flow (vphpl)                		1900	1900			1900	1900							1900		1900
+Lane Width (ft)                   		10	10			11	12							11		14
+Lane Util. Factor                 		1.00	0.95			0.95	1.00							1.00		1.00
+Ped Bike Factor                   																
+Frt                               																0.865
+Flt Protected                     		0.950														
+Satd. Flow (prot)                 		1607	3091			3355	0							0		1492
+Flt Permitted                     		0.950														
+Satd. Flow (perm)                 		1607	3091			3355	0							0		1492
+Link Speed (mph)                  			25			25								25		
+Link Distance (ft)                			99			214								192		
+Travel Time (s)                   			2.7			5.8								5.2		
+Confl. Peds. (#/hr)               		12					12									
+Peak Hour Factor                  		0.80	0.98			0.95	0.80							0.92		0.88
+Heavy Vehicles (%)                		4%	9%			4%	2%							2%		4%
+Bus Blockages (#/hr)              		2	0			0	0							0		0
+Parking  (#/hr)                   																3
+Adj. Flow (vph)                   		164	767			1486	0							0		253
+Shared Lane Traffic (%)           																
+Lane Group Flow (vph)             		164	767			1486	0							0		253
+Enter Blocked Intersection        		No	Yes			1 veh	No							No		Yes
+Lane Alignment                    		Left	Left			L NA	Right							Left		R NA
+Median Width(ft)                  			10			10								10		
+Link Offset(ft)                   			0			0								20		
+Crosswalk Width(ft)               			16			16								16		
+Two way Left Turn Lane            																
+Headway Factor                    		1.10	1.09			1.04	1.00							1.04		1.08
+Turning Speed (mph)               		15					9							15		12
+Sign Control                      			Free			Free								Stop		
+
+Intersection Summary
+Area Type:                        	Other
+Control Type: Unsignalized
+Intersection Capacity Utilization 59.5%					ICU Level of Service B
+Analysis Period (min) 15
+
+
+AM Existing - BR AM Peak 7:30-8:30 10:55 am 06/06/2023 	Synchro 11 Report
+	Page 0
+
+Lanes, Volumes, Timings
+101: Northern Boulevard & Depot Rd	08/24/2023
+
+
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR	SEL	SET	SER	NWL	NWT	NWR
+Lane Configurations               					0		1							0	2			2>	0
+Traffic Volume (vph)              					0		72							0	679			1307	55
+Future Volume (vph)               					0		72							0	679			1307	55
+Ideal Flow (vphpl)                					1900		1900							1900	1900			1900	1900
+Lane Width (ft)                   					12		12							12	11			11	11
+Lane Util. Factor                 					1.00		1.00							1.00	0.95			0.95	0.95
+Ped Bike Factor                   																			
+Frt                               							0.865											0.993	
+Flt Protected                     																			
+Satd. Flow (prot)                 					0		1536							0	3421			3320	0
+Flt Permitted                     																			
+Satd. Flow (perm)                 					0		1536							0	3421			3320	0
+Link Speed (mph)                  					25										25			25	
+Link Distance (ft)                					701										102			218	
+Travel Time (s)                   					19.1										2.8			5.9	
+Confl. Peds. (#/hr)               																			34
+Peak Hour Factor                  					0.92		0.80							0.92	0.92			0.94	0.80
+Heavy Vehicles (%)                					2%		7%							2%	2%			4%	12%
+Adj. Flow (vph)                   					0		90							0	738			1390	69
+Shared Lane Traffic (%)           																			
+Lane Group Flow (vph)             					0		90							0	738			1459	0
+Enter Blocked Intersection        					No		No							No	Yes			Yes	No
+Lane Alignment                    					Left		Right							Left	Left			Left	Right
+Median Width(ft)                  					0										10			10	
+Link Offset(ft)                   					0										0			0	
+Crosswalk Width(ft)               					16										16			16	
+Two way Left Turn Lane            																			
+Headway Factor                    					1.00		1.00							1.00	1.04			1.04	1.04
+Turning Speed (mph)               					15		9							15					9
+Sign Control                      					Stop										Free			Free	
+
+Intersection Summary
+Area Type:                        	Other
+Control Type: Unsignalized
+Intersection Capacity Utilization 49.1%					ICU Level of Service A
+Analysis Period (min) 15
+
+
+AM Existing - BR AM Peak 7:30-8:30 10:55 am 06/06/2023 	Synchro 11 Report
+	Page 0
+
+Lanes, Volumes, Timings
+102: Northern Boulevard & Station Rd	08/24/2023
+
+
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR	NEL	NET	NER	NER2	Ø3	Ø7
+Lane Configurations               					0		0	0	3>	0	1	2	0	1>		0	0		
+Traffic Volume (vph)              					0		0	0	1249	6	25	654	0	113		17	20		
+Future Volume (vph)               					0		0	0	1249	6	25	654	0	113		17	20		
+Ideal Flow (vphpl)                					1900		1900	1900	1900	1900	1900	1900	1900	1900		1900	1900		
+Lane Width (ft)                   					12		12	12	10	12	10	10	12	12		12	12		
+Storage Length (ft)               					0		0	0		0	67		0	0		0			
+Storage Lanes                     					0		0	0		0	1		0	1		0			
+Taper Length (ft)                 					25			25			30			25					
+Lane Util. Factor                 					1.00		1.00	1.00	0.91	0.91	1.00	0.95	1.00	1.00		1.00	1.00		
+Frt                               									0.999					0.967					
+Flt Protected                     											0.950			0.964					
+Satd. Flow (prot)                 					0		0	0	4588	0	1652	2991	0	1696		0	0		
+Flt Permitted                     											0.139			0.964					
+Satd. Flow (perm)                 					0		0	0	4588	0	242	2991	0	1696		0	0		
+Right Turn on Red                 							No			No			No				No		
+Satd. Flow (RTOR)                 																			
+Link Speed (mph)                  					25				25			25		25					
+Link Distance (ft)                					302				355			218		527					
+Travel Time (s)                   					8.2				9.7			5.9		14.4					
+Peak Hour Factor                  					0.92		0.92	0.92	0.92	0.80	0.96	0.92	0.92	0.80		0.80	0.80		
+Heavy Vehicles (%)                					2%		2%	2%	4%	29%	2%	7%	2%	4%		9%	3%		
+Bus Blockages (#/hr)              					0		0	0	9	0	0	0	0	0		0	0		
+Parking  (#/hr)                   												0							
+Adj. Flow (vph)                   					0		0	0	1358	8	26	711	0	141		21	25		
+Shared Lane Traffic (%)           																			
+Lane Group Flow (vph)             					0		0	0	1366	0	26	711	0	187		0	0		
+Enter Blocked Intersection        					No		No	No	No	No	No	No	No	No		No	No		
+Lane Alignment                    					Left		Right	Left	Left	Right	Left	Left	Right	Left		Right	Right		
+Median Width(ft)                  					0				10			10		12					
+Link Offset(ft)                   					20				0			0		0					
+Crosswalk Width(ft)               					16				16			16		16					
+Two way Left Turn Lane            																			
+Headway Factor                    					1.00		1.00	1.00	1.11	1.00	1.09	1.17	1.00	1.00		1.00	1.00		
+Turning Speed (mph)               					15		9	15		9	15		9	15		9	9		
+Turn Type                         									NA		Perm	NA		Prot					
+Protected Phases                  									2			6		4				3	7
+Permitted Phases                  											6								
+Minimum Split (s)                 									78.0		78.0	78.0		23.0				10.0	41.0
+Total Split (s)                   									69.0		69.0	69.0		44.0				7.0	51.0
+Total Split (%)                   									57.5%		57.5%	57.5%		36.7%				6%	43%
+Maximum Green (s)                 									64.0		64.0	64.0		39.0				2.0	46.0
+Yellow Time (s)                   									3.0		3.0	3.0		3.0				3.0	3.0
+All-Red Time (s)                  									2.0		2.0	2.0		2.0				2.0	2.0
+Lost Time Adjust (s)              									0.0		0.0	0.0		0.0					
+Total Lost Time (s)               									5.0		5.0	5.0		5.0					
+Lead/Lag                          														Lag				Lead	
+Lead-Lag Optimize?                														Yes				Yes	
+Walk Time (s)                     									61.0		61.0	61.0							11.0
+Flash Dont Walk (s)               									12.0		12.0	12.0							25.0
+Pedestrian Calls (#/hr)           									0		0	0							0
+Act Effct Green (s)               									64.0		64.0	64.0		39.0					
+Actuated g/C Ratio                									0.53		0.53	0.53		0.32					
+v/c Ratio                         									0.56		0.20	0.45		0.34					
+Control Delay                     									19.7		17.2	13.6		32.9					
+Queue Delay                       									0.2		0.0	0.2		0.0					
+Total Delay                       									20.0		17.2	13.8		32.9					
+LOS                               									B		B	B		C					
+Approach Delay                    									20.0			13.9		32.9					
+Approach LOS                      									B			B		C					
+Stops (vph)                       									800		9	200		111					
+Fuel Used(gal)                    									12		0	4		2					
+CO Emissions (g/hr)               									832		12	265		147					
+NOx Emissions (g/hr)              									162		2	52		29					
+VOC Emissions (g/hr)              									193		3	61		34					
+Dilemma Vehicles (#)              									0		0	0		0					
+Queue Length 50th (ft)            									247		6	90		110					
+Queue Length 95th (ft)            									291		m13	m131		151					
+Internal Link Dist (ft)           					222				275			138		447					
+Turn Bay Length (ft)              											67								
+Base Capacity (vph)               									2446		129	1595		551					
+Starvation Cap Reductn            									0		0	292		0					
+Spillback Cap Reductn             									396		0	0		0					
+Storage Cap Reductn               									0		0	0		0					
+Reduced v/c Ratio                 									0.67		0.20	0.55		0.34					
+
+Intersection Summary
+Area Type:                        	Other
+Cycle Length: 120
+Actuated Cycle Length: 120
+Offset: 13 (11%), Referenced to phase 2:NBT and 6:SBTL, Start of Green
+Natural Cycle: 120
+Control Type: Pretimed
+Maximum v/c Ratio: 0.56
+Intersection Signal Delay: 19.1   					Intersection LOS: B
+Intersection Capacity Utilization 41.1%					ICU Level of Service A
+Analysis Period (min) 15
+m    Volume for 95th percentile queue is metered by upstream signal.
+
+
+AM Existing - BR AM Peak 7:30-8:30 10:55 am 06/06/2023 	Synchro 11 Report
+	Page 0
+
+Lanes, Volumes, Timings
+103: driveway/160 St & Northern Blvd	08/24/2023
+
+
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR	Ø1	Ø5
+Lane Configurations               		1	2>	0	1	2>	0	0	0	0	0	<1>	0		
+Traffic Volume (vph)              		0	859	0	0	1585	0	0	0	0	0	0	0		
+Future Volume (vph)               		0	859	0	0	1585	0	0	0	0	0	0	0		
+Ideal Flow (vphpl)                		1900	1900	1900	1900	1900	1900	1900	1900	1900	1900	1900	1900		
+Lane Width (ft)                   		10	10	12	10	10	12	12	12	12	12	11	12		
+Storage Length (ft)               		60		0	60		0	0		0	0		0		
+Storage Lanes                     		1		0	1		0	0		0	0		0		
+Taper Length (ft)                 		50			50			25			25				
+Lane Util. Factor                 		1.00	0.95	0.95	1.00	0.95	0.95	1.00	1.00	1.00	1.00	1.00	1.00		
+Frt                               															
+Flt Protected                     															
+Satd. Flow (prot)                 		1739	3303	0	1739	3303	0	0	0	0	0	1801	0		
+Flt Permitted                     															
+Satd. Flow (perm)                 		1739	3303	0	1739	3303	0	0	0	0	0	1801	0		
+Right Turn on Red                 				No			No			No			No		
+Satd. Flow (RTOR)                 															
+Link Speed (mph)                  			25			25			25			25			
+Link Distance (ft)                			230			267			287			947			
+Travel Time (s)                   			6.3			7.3			7.8			25.8			
+Peak Hour Factor                  		0.92	0.92	0.92	0.92	0.92	0.92	0.92	0.92	0.92	0.92	0.92	0.92		
+Adj. Flow (vph)                   		0	934	0	0	1723	0	0	0	0	0	0	0		
+Shared Lane Traffic (%)           															
+Lane Group Flow (vph)             		0	934	0	0	1723	0	0	0	0	0	0	0		
+Enter Blocked Intersection        		No	No	No	No	No	No	No	No	No	No	No	No		
+Lane Alignment                    		Left	Left	Right	Left	Left	Right	Left	Left	Right	Left	Left	Right		
+Median Width(ft)                  			10			10			0			0			
+Link Offset(ft)                   			0			0			0			0			
+Crosswalk Width(ft)               			16			16			16			16			
+Two way Left Turn Lane            															
+Headway Factor                    		1.09	1.09	1.00	1.09	1.09	1.00	1.00	1.00	1.00	1.00	1.04	1.00		
+Turning Speed (mph)               		15		9	15		9	15		9	15		9		
+Turn Type                         		Perm	NA		Perm	NA									
+Protected Phases                  			4			8						2		1	5
+Permitted Phases                  		4			8						2				
+Minimum Split (s)                 		23.0	23.0		79.0	79.0					23.0	23.0		10.0	43.0
+Total Split (s)                   		77.0	77.0		77.0	77.0					36.0	36.0		7.0	43.0
+Total Split (%)                   		64.2%	64.2%		64.2%	64.2%					30.0%	30.0%		6%	36%
+Maximum Green (s)                 		72.0	72.0		72.0	72.0					31.0	31.0		2.0	38.0
+Yellow Time (s)                   		3.0	3.0		3.0	3.0					3.0	3.0		3.0	3.0
+All-Red Time (s)                  		2.0	2.0		2.0	2.0					2.0	2.0		2.0	2.0
+Lost Time Adjust (s)              		0.0	0.0		0.0	0.0						0.0			
+Total Lost Time (s)               		5.0	5.0		5.0	5.0						5.0			
+Lead/Lag                          											Lag	Lag		Lead	
+Lead-Lag Optimize?                											Yes	Yes		Yes	
+Walk Time (s)                     					63.0	63.0									19.0
+Flash Dont Walk (s)               					8.0	8.0									19.0
+Pedestrian Calls (#/hr)           					0	0									0
+Act Effct Green (s)               			72.0			72.0									
+Actuated g/C Ratio                			0.60			0.60									
+v/c Ratio                         			0.47			0.87									
+Control Delay                     			14.4			8.1									
+Queue Delay                       			0.0			0.0									
+Total Delay                       			14.4			8.1									
+LOS                               			B			A									
+Approach Delay                    			14.4			8.1									
+Approach LOS                      			B			A									
+Stops (vph)                       			455			1002									
+Fuel Used(gal)                    			6			10									
+CO Emissions (g/hr)               			415			704									
+NOx Emissions (g/hr)              			81			137									
+VOC Emissions (g/hr)              			96			163									
+Dilemma Vehicles (#)              			0			0									
+Queue Length 50th (ft)            			200			665									
+Queue Length 95th (ft)            			248			18									
+Internal Link Dist (ft)           			150			187			207			867			
+Turn Bay Length (ft)              															
+Base Capacity (vph)               			1981			1981									
+Starvation Cap Reductn            			0			0									
+Spillback Cap Reductn             			0			0									
+Storage Cap Reductn               			0			0									
+Reduced v/c Ratio                 			0.47			0.87									
+
+Intersection Summary
+Area Type:                        	Other
+Cycle Length: 120
+Actuated Cycle Length: 120
+Offset: 38 (32%), Referenced to phase 4:EBTL and 8:WBTL, Start of Green
+Natural Cycle: 125
+Control Type: Pretimed
+Maximum v/c Ratio: 0.87
+Intersection Signal Delay: 10.3   					Intersection LOS: B
+Intersection Capacity Utilization 48.0%					ICU Level of Service A
+Analysis Period (min) 15
+
+
+AM Existing - BR AM Peak 7:30-8:30 10:55 am 06/06/2023 	Synchro 11 Report
+	Page 0
