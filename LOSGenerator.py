@@ -2,6 +2,7 @@ from io import StringIO
 import pandas as pd
 import openpyxl as opxl
 from openpyxl.styles import Alignment, Border, PatternFill, Side
+import re
 import tkinter as tk
 from tkinter import filedialog
 
@@ -151,15 +152,43 @@ def populate_xlsx(txt_path, xlsx_path):
     create_workbook(ws, xlsx_path)
 
     # Read in Synchro file
-    data = pd.read_csv(txt_path, skipinitialspace=True, header=None)
-
-    # Create a Pandas ExcelWriter using xlsxwriter
-    xlsw = pd.ExcelWriter(xlsx_path, engine='xlsxwriter')
-    #sheet = xlsw.cur_sheet()
-
-    # Write data to xlsxwriter
-    data.to_excel(xlsw, sheet_name='Signals Review Sheet', startrow=3, startcol=2, header=False, index=False)
-
+    with open(txt_path, 'r') as file:
+        lines = file.readlines()
+    
+    # Set up variables
+    data = []
+    intersection_name = ""
+    lane_groups = []
+    link_distances = []
+    delays = []
+    vc_ratios = []
+    los = []
+    q50s = []
+    q95s = []
+    cycle_length = 0
+    offset = 0
+    
+    # Get data we're interested in
+    for line in lines:
+        if line.startswith("Lane Group"):
+            lane_groups = line.split('\t')[1].strip()
+        elif line.startswith("Link Distance (ft)"):
+            link_distances = line.split('\t')[1]
+        elif line.startswith("Total Delays"):
+            delays = line.split('\t')[1]
+        elif line.startswith("v/c Ratio"):
+            vc_ratios = line.split()('\t')[1]
+        elif line.startswith("LOS"):
+            los = line.split('\t')[1]
+        elif line.startswith("Queue Length 50th (ft)"):
+            q50s = line.split('\t')[1]
+        elif line.startswith("Queue Length 95th (ft)"):
+            q95s = line.split('\t')[1]
+        elif line.startswith("Cycle Length"):
+            cycle_length = int(line.split(":")[1].strip())
+        elif line.startswith("Offset"):
+            # Extracting offset is a bit more complicated
+            offset = int(re.split(':(', line)[1].strip())
 
 
 
