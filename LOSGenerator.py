@@ -118,6 +118,7 @@ def write_header_rows(ws, at_row):
     # Row 1
     headers_1 = ["Node","","Street Name","","EXISTING","","","","","","","","",
                  "Node","","Street Name","","","","","PROPOSED","","","","","","","",""]
+
     # Row 2
     headers_2 = ["Time","Direction","Mvmt","Link Dist","Volume","Delay","Delay","LOS","LOS","Vol%","v/c","Q50","Q95",
                  "Q95","Cycle Length", "Split","Offset","Notes", "", "Time","Direction","Mvmt","Link Dist","Volume",
@@ -150,7 +151,7 @@ def populate_xlsx(txt_path, xlsx_path):
     create_workbook(ws, xlsx_path)
 
     # Read in Synchro file
-    data = pd.read_csv(xlsx_path, skipinitialspace=True, header=None)
+    data = pd.read_csv(txt_path, skipinitialspace=True, header=None)
 
     # Create a Pandas ExcelWriter using xlsxwriter
     xlsw = pd.ExcelWriter(xlsx_path, engine='xlsxwriter')
@@ -158,6 +159,8 @@ def populate_xlsx(txt_path, xlsx_path):
 
     # Write data to xlsxwriter
     data.to_excel(xlsw, sheet_name='Signals Review Sheet', startrow=3, startcol=2, header=False, index=False)
+
+
 
 
 # Main Script
