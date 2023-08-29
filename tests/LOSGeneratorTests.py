@@ -45,4 +45,3 @@ class LOSGeneratorTests:
         # Do headers exist in workbook?
         wb = opxl.load_workbook(TEST_PATH+f"\\{fname}.xlsx")
         ws = wb.active
-        
