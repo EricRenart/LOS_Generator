@@ -33,7 +33,7 @@ class LOSGeneratorTestData:
                     "", "", "", "", "Synchro", "Synchro", "SimT", "Synchro", "SimT", "SimT", "Synchro", "Synchro",
                     "Synchro", "SimT"]}
     
-    # Sample traffic and signal dataframes
+    # Sample traffic, signal and node (intersection) dataframes
     TRAFFIC_DF_1 = pd.DataFrame(data={'Lane Groups': LANE_GROUPS[1],
                                  'Traffic Volume': [0,0,0,0,0,0,78,159,11,143,177,0,0,625,127,19,1334,26],
                                  'Total Delay': [0,0,0,0,0,0,0,127.0,0,0,31.1,0,0,13.7,0,4.2,14.2,0],
@@ -50,7 +50,7 @@ class LOSGeneratorTestData:
                                       'Splits': None}, # Splits TBI
                                 name=NODE_NAMES[1]+" Signal")
     
-    INTERSECTION_DF_1 = pd.DataFrame(data={'Name': NODE_NAMES[1],'TrafficDF':TRAFFIC_DF_1,'SignalDF':SIGNAL_DF_1})
+    NODE_DF_1 = pd.DataFrame(data={'Name': NODE_NAMES[1],'TrafficDF':TRAFFIC_DF_1,'SignalDF':SIGNAL_DF_1})
 
 class LOSGeneratorTestHelpers:
 
@@ -70,7 +70,7 @@ class LOSGeneratorTestHelpers:
             if os.path.isfile(path):
                 os.remove(path)
     
-    def test_lines(self):
+    def test_lines_node(self):
         with open(LOSGeneratorTestData.PATH) as file:
             lines = file.readlines()
         return lines
@@ -130,12 +130,15 @@ class LOSGeneratorTests:
     
     def test_build_traffic_df(self):
         print('test_build_traffic_df()')
-        df = LOSGenerator._build_traffic_dataframe(name=LOSGeneratorTestData.NODE_NAMES[1],
+        tdf = LOSGenerator._build_traffic_dataframe(name=LOSGeneratorTestData.NODE_NAMES[1],
                                                    lines=LOSGeneratorTestHelpers.test_lines_traffic())
-        pd.testing.assert_frame_equal(df, LOSGeneratorTestHelpers.TRAFFIC_DF_1)
+        pd.testing.assert_frame_equal(tdf, LOSGeneratorTestHelpers.TRAFFIC_DF_1)
     
     def test_build_signal_df(self):
         print('test_build_signal_df()')
+    
+    def test_build_node_df(self):
+        print('test_build_node_df()')
     
     def test_import_and_build_traffic_df(self):
         print('test_import_and_build_traffic_df()')
