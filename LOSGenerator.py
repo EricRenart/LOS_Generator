@@ -12,6 +12,8 @@ drk_grey = "474747"
 black = "ffffff"
 white = "000000"
 
+# Output file functions
+
 # Create a row of LOS data in the specified worksheet
 def _create_movement_row(ws, start_row, period, direction):
 
@@ -30,7 +32,7 @@ def _create_movement_row(ws, start_row, period, direction):
         ws.cell(row=start_row + 2, column=column, value=value).alignment = Alignment(horizontal='center')
 
 # Format cells with borders and typeface
-def format_cell(ws, row, col, sides='lrtb', style='thick', color="000000"):
+def _format_cell(ws, row, col, sides='lrtb', style='thick', color="000000"):
     top, bottom, left, right = None
     if 'l' in sides:
         left = Side(border_style=style, color=color)
@@ -47,72 +49,55 @@ def format_cell(ws, row, col, sides='lrtb', style='thick', color="000000"):
     ws.cell(row=row, column=col).border = border
     ws.cell(row=row, column=col).fill = fill
 
-
-# Fill LOS values in cells
-def _fill_data(ws, row, col, data, sides='lrtb'):
-    ws.cell(row=row, column=col).value = data.loc[2] # Volume
-    ws.cell(row=row, column=col+1).value = data.loc[3] # Synchro delay
-    ws.cell(row=row, column=col+2).value = data.loc[4] # SimTraffic delay
-    ws.cell(row=row, column=col+3).value = data.loc[5] # Percent volume in simtraffic
-    ws.cell(row=row, column=col+4).value = data.loc[6] # v/c
-    ws.cell(row=row, column=col+5).value = data.loc[7] # LOS
-    ws.cell(row=row, column=col+6).value = data.loc[8] # Synchro Q50
-    ws.cell(row=row, column=col+7).value = data.loc[9] # Synchro Q95
-    ws.cell(row=row, column=col+8).value = data.loc[10] # Simtraffic Q50
-    ws.cell(row=row, column=col+9).value = data.loc[11] # Simtraffic Q95
-    ws.cell(row=row, column=col+10).value = data.loc[12] # Cycle Length
-    ws.cell(row=row, column=col+11).value = data.loc[13] # Split
-    ws.cell(row=row, column=col+12).value = data.loc[14] # Offset
-    ws.cell(row=row, column=col+13).value = data.loc[15] # Notes
-
-    # Apply border
-    for i in range(0,13):
-
-        # Upper-left cell
-        if row == 0 and col == 0:
-            format_cell(ws, row, col=col+i, sides='lt', style='thick')
-
-        # Upper-right cell
-        elif row == 0 and col == 15:
-            format_cell(ws, row, col=col+i, sides='tr', style='thick')
-
-        # Top line
-        elif row == 0:
-            format_cell(ws, row, col=col+i, sides='t', style='thick')
-
-        # Bottom-left cell
-        elif row == len(data) and col == 0:
-            format_cell(ws, row, col=col+i, sides='bl', style='thick')
-
-        # Bottom-right cell
-        elif row == len(data) and col == 15:
-            format_cell(ws, row, col=col+i, sides='br', style='thick')
-
-        # Bottom line
-        elif row == len(data):
-            format_cell(ws, row, col=col+i, sides='b', style='thick')
-
-        # Left line
-        elif col == 0:
-            format_cell(ws, row, col=col+i, sides='l', style='thick')
-
-        # Right line
-        elif col == 15:
-            format_cell(ws, row, col=col+i, sides='r', style='thick')
-
-        # Inner cells
-        else:
-            format_cell(ws, row, col=col+i, sides='lrtb', style='thin')
-
-    # Advance row
-    row += 1
-
 # Creates Excel workbook and sets up initial headers
 def create_workbook(initial_headers=False):
     wb = opxl.Workbook()
     if initial_headers:
         write_header_rows(wb.active, at_row=0)
     return wb
+
+def format_borders(ws, row, col, data, sides='lrtb'):
+    # Apply border
+    for i in range(0,13):
+
+        # Upper-left cell
+        if row == 0 and col == 0:
+            _format_cell(ws, row, col=col+i, sides='lt', style='thick')
+
+        # Upper-right cell
+        elif row == 0 and col == 15:
+            _format_cell(ws, row, col=col+i, sides='tr', style='thick')
+
+        # Top line
+        elif row == 0:
+            _format_cell(ws, row, col=col+i, sides='t', style='thick')
+
+        # Bottom-left cell
+        elif row == len(data) and col == 0:
+            _format_cell(ws, row, col=col+i, sides='bl', style='thick')
+
+        # Bottom-right cell
+        elif row == len(data) and col == 15:
+            _format_cell(ws, row, col=col+i, sides='br', style='thick')
+
+        # Bottom line
+        elif row == len(data):
+            _format_cell(ws, row, col=col+i, sides='b', style='thick')
+
+        # Left line
+        elif col == 0:
+            _format_cell(ws, row, col=col+i, sides='l', style='thick')
+
+        # Right line
+        elif col == 15:
+            _format_cell(ws, row, col=col+i, sides='r', style='thick')
+
+        # Inner cells
+        else:
+            _format_cell(ws, row, col=col+i, sides='lrtb', style='thin')
+
+    # Advance row
+    row += 1
 
 def write_header_rows(ws, at_row):
     # Lists of Headers (Columns A-S)
@@ -141,8 +126,62 @@ def write_header_rows(ws, at_row):
     for i, header in enumerate(headers_3):
         ws.write(at_row+2, i, header)
 
-# Populate Excel sheet with data from text file
-def populate_xlsx(txt_path, xlsx_path):
+# Input file functions
+
+def _build_signal_dataframe(name, intx_lines):
+
+    # Signal timing dataframe
+    signal_df = pd.DataFrame(name=name+' Signal', columns=['Cycle Length','Split List','Offset'])
+    for line, i in enumerate(intx_lines):
+        if line.startswith("Cycle Length"):
+            cl = int(line.split(": ")[1])
+        elif line.startswith("Offset"):
+            offset = int(line.split(":(")[1])
+
+def _build_traffic_dataframe(name, intx_lines):
+    
+    # Traffic dataframe
+    traffic_df = pd.DataFrame(name=name+' Traffic', columns=['Lane Group','Volume','Total Delay','v/c Ratio',
+                                 'LOS', 'Queue 50th','Queue 95th'])
+
+    for line, i in enumerate(intx_lines):
+        if line.startswith("Lane Group"):
+            lane_groups = line.split('\t')[1].strip()
+            for lg in lane_groups:
+                traffic_df.loc['Lane Group'][i] = lg
+        elif line.startswith("Traffic Volume (vph)"):
+            vols = line.split('\t')[1]
+            for vol in vols:
+                traffic_df.loc['Volume'][i] = vol
+        elif line.startswith("Total Delays"):
+            delays = line.split('\t')[1]
+            for delay in delays:
+                traffic_df.loc['Total Delay'][i] = delay
+        elif line.startswith("v/c Ratio"):
+            vc_ratios = line.split()('\t')[1]
+            for vc in vc_ratios:
+                traffic_df.loc['v/c Ratio'][i] = vc
+        elif line.startswith("LOS"):
+            los = line.split('\t')[1]
+            for l in los:
+                traffic_df.loc['LOS'][i] = l
+        elif line.startswith("Queue Length 50th (ft)"):
+            q50s = line.split('\t')[1]
+            for q in q50s:
+                traffic_df.loc['Queue 50th'][i] = q
+        elif line.startswith("Queue Length 95th (ft)"):
+            q95s = line.split('\t')[1]
+            for q in q95s:
+                traffic_df.loc['Queue 95th'][i] = q
+    
+    return traffic_df
+
+def _filter_input_lines(lines):
+    # Removes unneeded lines by filtering out lines below a certain number of \t's
+    pass
+
+# Main function
+def los_generator(txt_path, xlsx_path):
 
     # Create workbook and select active sheet
     wb = opxl.Workbook()
@@ -154,43 +193,36 @@ def populate_xlsx(txt_path, xlsx_path):
     # Read in Synchro file
     with open(txt_path, 'r') as file:
         lines = file.readlines()
+    node_lines = []
+    names = []
+    name_line = False
     
-    # Set up variables
-    data = []
-    intersection_name = ""
-    lane_groups = []
-    link_distances = []
-    delays = []
-    vc_ratios = []
-    los = []
-    q50s = []
-    q95s = []
-    cycle_length = 0
-    offset = 0
-    
-    # Get data we're interested in
+    # Split lines per intersection and build a list of lines seperated by node name
+    intersection_lines = []
     for line in lines:
-        if line.startswith("Lane Group"):
-            lane_groups = line.split('\t')[1].strip()
-        elif line.startswith("Link Distance (ft)"):
-            link_distances = line.split('\t')[1]
-        elif line.startswith("Total Delays"):
-            delays = line.split('\t')[1]
-        elif line.startswith("v/c Ratio"):
-            vc_ratios = line.split()('\t')[1]
-        elif line.startswith("LOS"):
-            los = line.split('\t')[1]
-        elif line.startswith("Queue Length 50th (ft)"):
-            q50s = line.split('\t')[1]
-        elif line.startswith("Queue Length 95th (ft)"):
-            q95s = line.split('\t')[1]
-        elif line.startswith("Cycle Length"):
-            cycle_length = int(line.split(":")[1].strip())
-        elif line.startswith("Offset"):
-            # Extracting offset is a bit more complicated
-            offset = int(re.split(':(', line)[1].strip())
-
-
+        if line.startswith("Lanes, Volumes, Timings"):
+            if intersection_lines:
+                name_line = True # Next line is the intersection name
+                node_lines.append(intersection_lines)
+            if name_line:
+                name_line = False
+                name = line.split(":\t")[1].strip()
+                names.append(name)
+            intersection_lines = []
+        intersection_lines.append(line)
+    
+    # Append last node
+    if intersection_lines:
+        node_lines.append(intersection_lines)
+    
+    # Now go through node_lines for each node, and build a traffic and signal DataFrame for each
+    node_df = pd.DataFrame(columns=['NodeName','TrafficDF','SignalDF'])
+    for i, node in enumerate(node_lines):
+        tdf = _build_traffic_dataframe(name=names[i], intx_lines=node_lines[i])
+        sdf = _build_signal_dataframe(name=names[i], intx_lines=node_lines[i])
+        node_df.loc['TrafficDF'][i] = tdf
+        node_df.loc['SignalDF'][i] = sdf
+        node_df.Name = "Signals Review Sheet"
 
 # Main Script
 
@@ -215,4 +247,4 @@ print(f"Output excel spreadsheet: {output_path}")
 root.deiconify()
 
 # Process the input data
-populate_xlsx(input_path, output_path)
+los_generator(input_path, output_path)
