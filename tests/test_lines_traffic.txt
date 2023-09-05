@@ -1,0 +1,10 @@
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR	SEL	SET	SER	NWL	NWT	NWR
+Lane Configurations               								0	<1>	0	0	<1>	0	0	2>	0	1	2>	0
+Traffic Volume (vph)              								78	159	11	43	177	0	0	625	127	19	1334	26
+Link Distance (ft)                									235			152			214			102	
+v/c Ratio                         									0.94			0.55			0.57		0.08	0.70	
+Total Delay                       									127.0			31.1			13.7		4.2	14.2	
+LOS                               									F			C			B		A	B	
+Queue Length 50th (ft)            									219			77			100		2	504	
+Queue Length 95th (ft)            									#364			102			118		m4	606	
+Turn Bay Length (ft)              																	60		

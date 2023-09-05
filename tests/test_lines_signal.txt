@@ -1,0 +1,6 @@
+Lane Group                        		EBL	EBT	EBR	WBL	WBT	WBR	NBL	NBT	NBR	SBL	SBT	SBR	SEL	SET	SER	NWL	NWT	NWR
+Lane Configurations               								0	<1>	0	0	<1>	0	0	2>	0	1	2>	0
+Total Split (s)                   								40.0	40.0		40.0	40.0			67.0		13.0	80.0	
+
+Cycle Length: 120
+Offset: 23 (19%), Referenced to phase 4:SET, Start of Green
