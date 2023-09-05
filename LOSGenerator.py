@@ -126,7 +126,7 @@ def write_header_rows(ws, at_row):
     for i, header in enumerate(headers_3):
         ws.write(at_row+2, i, header)
 
-# Input file functions
+# Input file and Pandas functions
 
 def _build_signal_dataframe(name, intx_lines):
 
@@ -180,6 +180,10 @@ def _filter_input_lines(lines):
     # Removes unneeded lines by filtering out lines below a certain number of \t's
     pass
 
+def _drop_empty_lane_groups(intx_df):
+    # Drops lane groups with no data from the dataframe.
+    pass
+
 # Main function
 def los_generator(txt_path, xlsx_path):
 
@@ -223,6 +227,8 @@ def los_generator(txt_path, xlsx_path):
         node_df.loc['TrafficDF'][i] = tdf
         node_df.loc['SignalDF'][i] = sdf
         node_df.Name = "Signals Review Sheet"
+    
+    # TODO: Drop empty lane groups from each intersection df
 
 # Main Script
 
