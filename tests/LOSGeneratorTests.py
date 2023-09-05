@@ -7,7 +7,7 @@ import os
 class LOSGeneratorTestData:
     PATH = os.path.dirname(os.path.abspath(__file__)) + "\\tests\\"
 
-    # Data from an actual work project for testing input functionality
+    # Testing data is from an actual project in Flushing I did analysis for
     NODE_NAMES = {1: "162nd Street & Northern Boulevard",
                      2: "162nd Street & Crocheron Avenue",
                      3: "Crocheron Avenue & 161st Street"}
@@ -29,6 +29,25 @@ class LOSGeneratorTestData:
                     "Synchro", "SimT",
                     "", "", "", "", "Synchro", "Synchro", "SimT", "Synchro", "SimT", "SimT", "Synchro", "Synchro",
                     "Synchro", "SimT"]}
+    
+    # Sample traffic and signal dataframes
+    TRAFFIC_DF_1 = pd.DataFrame(data={'Lane Groups': LANE_GROUPS[1],
+                                 'Traffic Volume': [0,0,0,0,0,0,78,159,11,143,177,0,0,625,127,19,1334,26],
+                                 'Total Delay': [0,0,0,0,0,0,0,127.0,0,0,31.1,0,0,13.7,0,4.2,14.2,0],
+                                 'v/c Ratio': [0,0,0,0,0,0,0,0.94,0,0,0.55,0,0,0.57,0,0.08,0.70,0],
+                                 'LOS': ['A','A','A','A','A','A','F','A','A','C','A','A','B','A'],
+                                 'Queue 50th': ['0','0','0','0','0','0','0','219','0','0','77','0','0',
+                                                '100','0','2','504'],
+                                'Queue 95th': ['0','0','0','0','0','0','0','#364','0','0','102','0','0',
+                                                '118','0','m4','606']},
+                                name=NODE_NAMES[1]+" Traffic")
+    
+    SIGNAL_DF_1 = pd.DataFrame(data={'Cycle Length': 120,
+                                      'Offset': 23,
+                                      'Splits': None}, # Splits TBI
+                                name=NODE_NAMES[1]+" Signal")
+    
+    INTERSECTION_DF_1 = pd.DataFrame(data={'Name': NODE_NAMES[1],'TrafficDF':TRAFFIC_DF_1,'SignalDF':SIGNAL_DF_1})
 
 class LOSGeneratorTestHelpers:
 
@@ -90,14 +109,11 @@ class LOSGeneratorTests:
                     pytest.fail()
 
         LOSGeneratorTestHelpers.clear_test_data()
-
-    def test_import_metadata_df(self):
-        print('test_import_metadata_df()')
     
-    def test_import_traffic_df(self):
+    def test_build_traffic_df(self):
         print('test_import_traffic_df()')
     
-    def test_import_signal_df(self):
+    def test_build_signal_df(self):
         print('test_import_signal_df()')
     
     def test_import_full(self):

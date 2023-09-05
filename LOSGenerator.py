@@ -226,7 +226,6 @@ def los_generator(txt_path, xlsx_path):
         sdf = _build_signal_dataframe(name=names[i], intx_lines=node_lines[i])
         node_df.loc['TrafficDF'][i] = tdf
         node_df.loc['SignalDF'][i] = sdf
-        node_df.Name = "Signals Review Sheet"
     
     # TODO: Drop empty lane groups from each intersection df
 
