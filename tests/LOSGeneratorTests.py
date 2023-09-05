@@ -1,11 +1,14 @@
 import pytest
 import openpyxl as opxl
 import pandas as pd
+from pandas.testing import assert_frame_equal
 import LOSGenerator
 import os
 
 class LOSGeneratorTestData:
     PATH = os.path.dirname(os.path.abspath(__file__)) + "\\tests\\"
+    TRAFFIC_LINES_PATH = PATH.join('test_lines_traffic.txt')
+    SIGNAL_LINES_PATH = PATH.join('test_lines_signal.txt')
 
     # Testing data is from an actual project in Flushing I did analysis for
     NODE_NAMES = {1: "162nd Street & Northern Boulevard",
@@ -41,7 +44,7 @@ class LOSGeneratorTestData:
                                 'Queue 95th': ['0','0','0','0','0','0','0','#364','0','0','102','0','0',
                                                 '118','0','m4','606']},
                                 name=NODE_NAMES[1]+" Traffic")
-    
+
     SIGNAL_DF_1 = pd.DataFrame(data={'Cycle Length': 120,
                                       'Offset': 23,
                                       'Splits': None}, # Splits TBI
@@ -66,6 +69,21 @@ class LOSGeneratorTestHelpers:
             path = os.path.join(LOSGeneratorTestData.PATH, file)
             if os.path.isfile(path):
                 os.remove(path)
+    
+    def test_lines(self):
+        with open(LOSGeneratorTestData.PATH) as file:
+            lines = file.readlines()
+        return lines
+    
+    def test_lines_traffic(self):
+        with open(LOSGeneratorTestData.INTERSECTION_LINES_PATH) as file:
+            lines = file.readlines()
+        return lines
+    
+    def test_lines_signal(self):
+        with open(LOSGeneratorTestData.SIGNAL_LINES_PATH) as file:
+            lines = file.readlines()
+        return lines
 
 class LOSGeneratorTests:
     # Test Functions
@@ -74,7 +92,7 @@ class LOSGeneratorTests:
         print('test_workbook_create()')
         fname = 'test_workbook_create'
         LOSGeneratorTestHelpers.create_blank_workbook(LOSGeneratorTestData.PATH)
-        assert os.path.exists(LOSGeneratorTestData.PATH.join(f"{fname}.xlsx")
+        assert os.path.exists(LOSGeneratorTestData.PATH.join(f"{fname}.xlsx"))
         LOSGeneratorTestHelpers.clear_test_data()
 
     def test_workbook_create_with_headers(self):
@@ -111,14 +129,25 @@ class LOSGeneratorTests:
         LOSGeneratorTestHelpers.clear_test_data()
     
     def test_build_traffic_df(self):
-        print('test_import_traffic_df()')
+        print('test_build_traffic_df()')
+        df = LOSGenerator._build_traffic_dataframe(name=LOSGeneratorTestData.NODE_NAMES[1],
+                                                   lines=LOSGeneratorTestHelpers.test_lines_traffic())
+        pd.testing.assert_frame_equal(df, LOSGeneratorTestHelpers.TRAFFIC_DF_1)
     
     def test_build_signal_df(self):
-        print('test_import_signal_df()')
+        print('test_build_signal_df()')
+    
+    def test_import_and_build_traffic_df(self):
+        print('test_import_and_build_traffic_df()')
+    
+    def test_import_and_build_signal_df(self):
+        print('test_import_and_build_signal_df()')
     
     def test_import_full(self):
         print('test_import_full()')
     
     def test_drop_empty_lane_groups(self):
         print('test_drop_empty_lane_groups()')
-
+    
+    def test_split_by_node(self):
+        print('test_split_by_node()')

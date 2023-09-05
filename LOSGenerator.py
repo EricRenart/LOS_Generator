@@ -184,25 +184,13 @@ def _drop_empty_lane_groups(intx_df):
     # Drops lane groups with no data from the dataframe.
     pass
 
-# Main function
-def los_generator(txt_path, xlsx_path):
-
-    # Create workbook and select active sheet
-    wb = opxl.Workbook()
-    ws = wb.active
-
-    # Create workbook with initial headers
-    create_workbook(ws, xlsx_path)
-
-    # Read in Synchro file
-    with open(txt_path, 'r') as file:
-        lines = file.readlines()
+# Split lines per intersection and build a list of lines. Returns a tuple containing the node data and node name
+def _split_by_node(lines):
     node_lines = []
+    intersection_lines = []
     names = []
     name_line = False
-    
-    # Split lines per intersection and build a list of lines seperated by node name
-    intersection_lines = []
+
     for line in lines:
         if line.startswith("Lanes, Volumes, Timings"):
             if intersection_lines:
@@ -218,7 +206,26 @@ def los_generator(txt_path, xlsx_path):
     # Append last node
     if intersection_lines:
         node_lines.append(intersection_lines)
+
+    return (node_lines, names)
+
+# Main function
+def los_generator(txt_path, xlsx_path):
+
+    # Create workbook and select active sheet
+    wb = opxl.Workbook()
+    ws = wb.active
+
+    # Create workbook with initial headers
+    create_workbook(ws, xlsx_path)
+
+    # Read in Synchro file
+    with open(txt_path, 'r') as file:
+        lines = file.readlines()
     
+    # Get node names and data by node
+    (node_lines, names) = _split_by_node(lines)
+
     # Now go through node_lines for each node, and build a traffic and signal DataFrame for each
     node_df = pd.DataFrame(columns=['NodeName','TrafficDF','SignalDF'])
     for i, node in enumerate(node_lines):
