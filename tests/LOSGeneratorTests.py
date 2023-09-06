@@ -76,7 +76,7 @@ class LOSGeneratorTestHelpers:
         return lines
     
     def test_lines_traffic(self):
-        with open(LOSGeneratorTestData.INTERSECTION_LINES_PATH) as file:
+        with open(LOSGeneratorTestData.TRAFFIC_LINES_PATH) as file:
             lines = file.readlines()
         return lines
     
@@ -130,15 +130,24 @@ class LOSGeneratorTests:
     
     def test_build_traffic_df(self):
         print('test_build_traffic_df()')
-        tdf = LOSGenerator._build_traffic_dataframe(name=LOSGeneratorTestData.NODE_NAMES[1],
-                                                   lines=LOSGeneratorTestHelpers.test_lines_traffic())
+        traffic_lines = LOSGeneratorTestHelpers.test_lines_traffic()
+        tdf = LOSGenerator._build_traffic_dataframe(name=LOSGeneratorTestData.NODE_NAMES[1], lines=traffic_lines)
         pd.testing.assert_frame_equal(tdf, LOSGeneratorTestHelpers.TRAFFIC_DF_1)
     
     def test_build_signal_df(self):
         print('test_build_signal_df()')
+        signal_lines = LOSGeneratorTestHelpers.test_lines_signal()
+        sdf = LOSGenerator._build_signal_dataframe(name=LOSGeneratorTestData.NODE_NAMES[1], lines=signal_lines)
+        pd.testing.assert_frame_equal(sdf, LOSGeneratorTestHelpers.SIGNAL_DF_1)
     
     def test_build_node_df(self):
         print('test_build_node_df()')
+        traffic_lines = LOSGeneratorTestHelpers.test_lines_traffic()
+        signal_lines = LOSGeneratorTestHelpers.test_lines_signal()
+        tdf = LOSGenerator._build_traffic_dataframe(name=LOSGeneratorTestData.NODE_NAMES[1], lines=traffic_lines)
+        sdf = LOSGenerator._build_signal_dataframe(name=LOSGeneratorTestData.NODE_NAMES[1], lines=signal_lines)
+        pd.testing.assert_frame_equal(tdf, LOSGeneratorTestHelpers.TRAFFIC_DF_1)
+        pd.testing.assert_frame_equal(sdf, LOSGeneratorTestHelpers.SIGNAL_DF_1)
     
     def test_import_and_build_traffic_df(self):
         print('test_import_and_build_traffic_df()')

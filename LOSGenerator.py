@@ -137,18 +137,18 @@ def _build_signal_dataframe(name, intx_lines):
         if line.startswith("Lane Group"):
             lane_groups = line.split('\t')[1].strip()
             for lg in lane_groups:
-                signal_df.loc['Lane Group'][i] = lg
+                signal_df[signal_df['Lane Group']] = lg
         elif line.startswith("Lane Configurations"):
             lane_configs = line.split('\t')[1].strip()
             for lc in lane_configs:
-                signal_df.loc['Lane Configurations'][i] = lc
+                signal_df[signal_df['Lane Configrations']] = lc
         elif line.startswith("Cycle Length"):
             cl = int(line.split(": ")[1])
-            signal_df['Cycle Length'] = cl
+            signal_df[signal_df['Cycle Length']] = cl
         elif line.startswith("Offset"):
             # Need to use regex for this one
-            offset = int(re.split(":(")[1])
-            signal_df['Offset'] = offset
+            offset = int(re.search(r"Offset: (\d+)", line).group(1))
+            signal_df[signal_df['Offset']] = offset
 
 def _build_traffic_dataframe(name, intx_lines):
     
@@ -161,35 +161,35 @@ def _build_traffic_dataframe(name, intx_lines):
         if line.startswith("Lane Group"):
             lane_groups = line.split('\t')[1].strip()
             for lg in lane_groups:
-                traffic_df.loc['Lane Group'][i] = lg
+                traffic_df[traffic_df['Lane Group']] = lg
         elif line.startswith("Lane Configurations"):
             lane_configs = line.split('\t')[1].strip()
             for lc in lane_configs:
-                traffic_df.loc['Lane Configurations'][i] = lc
+                traffic_df[traffic_df['Lane Configurations']] = lc
         elif line.startswith("Traffic Volume (vph)"):
             vols = line.split('\t')[1]
             for vol in vols:
-                traffic_df.loc['Traffic Volume (vph)'][i] = vol
+                traffic_df[traffic_df['Traffic Volume (vph)']] = vol
         elif line.startswith("Total Delay"):
             delays = line.split('\t')[1]
             for delay in delays:
-                traffic_df.loc['Total Delay'][i] = delay
+                traffic_df[traffic_df['Total Delay']] = delay
         elif line.startswith("v/c Ratio"):
-            vc_ratios = line.split()('\t')[1]
+            vc_ratios = line.split('\t')[1]
             for vc in vc_ratios:
-                traffic_df.loc['v/c Ratio'][i] = vc
+                traffic_df[traffic_df['v/c Ratio']] = vc
         elif line.startswith("LOS"):
             los = line.split('\t')[1]
             for l in los:
-                traffic_df.loc['LOS'][i] = l
+                traffic_df[traffic_df['LOS']] = l
         elif line.startswith("Queue Length 50th (ft)"):
             q50s = line.split('\t')[1]
             for q in q50s:
-                traffic_df.loc['Queue Length 50th (ft)'][i] = q
+                traffic_df[traffic_df['Queue Length 50th (ft)']] = q
         elif line.startswith("Queue Length 95th (ft)"):
             q95s = line.split('\t')[1]
             for q in q95s:
-                traffic_df.loc['Queue Length 95th (ft)'][i] = q
+                traffic_df[traffic_df['Queue Length 95th (ft)']] = q
     
     return traffic_df
 
@@ -200,19 +200,21 @@ def _filter_empty_configs_and_lines(df, configuration='traffic'):
         return _filter_traffic_lines(int_df)
     elif configuration == 'signal':
         return _filter_signal_lines(int_df)
+    else:
+        raise ValueError("Filter type must either be <traffic> or <signal>")
 
 def _filter_empty_lane_configs(df):
     # Filters out columns without lane config defined
-    return df.loc[df['Lane Configurations'] != '\t']
+    return df[df['Lane Configurations'] != '\t']
 
 def _filter_traffic_lines(df):
     traffic_lines = ['Lane Group','Lane Configurations','Traffic Volume (vph)','v/c Ratio',
                      'Total Delay','LOS','Queue Length 50th (ft)','Queue Length 95th (ft)']
-                     # TBI
+    return df[df['Lane Configurations'].isin(traffic_lines)]
 
 def _filter_signal_lines(df):
-    signal_lines = ['Cycle Length','Offset','Total Split (s)']
-    # TBI
+    signal_lines = ['Cycle Length', 'Offset', 'Total Split (s)']
+    return df[df['Lane Configurations'].isin(signal_lines)]
 
 # Split lines per intersection and build a list of lines. Returns a tuple containing the node data and node name
 def _split_by_node(lines):
@@ -247,7 +249,7 @@ def los_generator(txt_path, xlsx_path):
     ws = wb.active
 
     # Create workbook with initial headers
-    create_workbook(ws, xlsx_path)
+    create_workbook(xlsx_path)
 
     # Read in Synchro file
     with open(txt_path, 'r') as file:
@@ -261,10 +263,11 @@ def los_generator(txt_path, xlsx_path):
     for i, node in enumerate(node_lines):
         tdf = _build_traffic_dataframe(name=names[i], intx_lines=node_lines[i])
         sdf = _build_signal_dataframe(name=names[i], intx_lines=node_lines[i])
-        node_df.loc['TrafficDF'][i] = tdf
-        node_df.loc['SignalDF'][i] = sdf
-    
-    # TODO: Drop empty lane groups from each intersection df
+        tdf_cleaned = _filter_empty_configs_and_lines(tdf, configuration='traffic')
+        sdf_cleaned = _filter_empty_configs_and_lines(sdf, configuration='signal')
+        node_df[node_df['TrafficDF']] = tdf
+        node_df[node_df['SignalDF']] = sdf
+
 
 # Main Script
 
